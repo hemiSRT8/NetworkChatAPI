@@ -2,5 +2,6 @@ package ua.khvorov.api.message;
 
 public enum MessageType {
     SIGN_IN,
-    TEXT_MESSAGE
+    TEXT_MESSAGE,
+    REGISTRATION
 }
