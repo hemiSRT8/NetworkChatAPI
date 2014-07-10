@@ -1,7 +1,6 @@
 package ua.khvorov.api.entity;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -12,17 +11,12 @@ public class User implements Serializable {
     private Date dateOfBirth;
     private String info;
 
-    private String logIn;
-    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
     public User(String nickname, String password, String city, Date dateOfBirth, String info) {
         this.nickname = nickname;
         this.password = password;
         this.city = city;
         this.dateOfBirth = dateOfBirth;
         this.info = info;
-
-        logIn = SIMPLE_DATE_FORMAT.format(System.currentTimeMillis());
     }
 
     public String getNickname() {
@@ -65,14 +59,6 @@ public class User implements Serializable {
         this.info = info;
     }
 
-    public String getLogIn() {
-        return logIn;
-    }
-
-    public void setLogIn(String logIn) {
-        this.logIn = logIn;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -81,7 +67,6 @@ public class User implements Serializable {
                 ", city='" + city + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", info='" + info + '\'' +
-                ", logIn=" + logIn +
                 '}';
     }
 
@@ -110,7 +95,6 @@ public class User implements Serializable {
         hash = hash * 17 + city.hashCode();
         hash = hash * 17 + dateOfBirth.hashCode();
         hash = hash * 17 + info.hashCode();
-        hash = hash * 17 + logIn.hashCode();
 
         return hash;
     }
